@@ -1,0 +1,16 @@
+<app-header (toggleSidenav)="sidenav.toggle()"></app-header>
+<mat-sidenav-container hasBackdrop="true">
+  <mat-sidenav #sidenav mode="side">
+    <button mat-flat-button class="home-button" routerLink="/home">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-flat-button class="analytics-button" routerLink="/analytics">
+      <mat-icon>pie_chart</mat-icon>
+      <span>Analytics</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
