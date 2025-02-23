@@ -11,6 +11,7 @@ import {
   MatDialog
 } from '@angular/material/dialog';
 import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.component';
+import { NewExpenseComponent } from '../new-expense/new-expense.component';
 
 export interface DialogData {
   _id: string;
@@ -33,12 +34,16 @@ export class ExpenseListComponent implements OnInit {
   constructor(private expensesService: ExpensesService) { }
 
   ngOnInit(): void {
-    this.expenses$ = this.expensesService.getExpenses();
+    this.expenses$ = this.expensesService.getFilteredExpenses();
   }
 
   public openExpenseDialog(expense: Expense) {
     const dialogRef = this.dialog.open(ExpenseDialogComponent, {
       data: { _id: expense._id, category: expense.category, description: expense.description, amount: expense.amount, date: expense.date },
     });
+  }
+
+  public openNewExpenseDialog() {
+    this.dialog.open(NewExpenseComponent);
   }
 }

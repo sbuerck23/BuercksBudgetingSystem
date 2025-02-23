@@ -1,4 +1,14 @@
 .home {
   height: 100vh;
   padding-left: 10px;
+  display: flex;
+}
+
+.expense-list {
+  width: 80%;
+  margin-right: 10px;
+}
+
+.filters {
+  width: 20%;
 }

@@ -1,4 +1,7 @@
 <div class="home">
-  This is the home section
-  <app-expense-list></app-expense-list>
+  <app-expense-list class="expense-list"></app-expense-list>
+  <app-filter
+    class="filters"
+    (filterChanged)="applyFilters($event)"
+  ></app-filter>
 </div>

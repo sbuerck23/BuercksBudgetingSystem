@@ -1,9 +1,20 @@
-<div class="expense-list">
-  @for (expense of (expenses$ | async); track expense._id) {
-  <button class="expense-container" (click)="openExpenseDialog(expense)">
-    <span class="amount-text">{{ expense.amount | currencyFormat }}</span>
-    <span class="category-text">{{ expense.category }}</span>
-    <span class="date-text">{{ expense.date }}</span>
-  </button>
-  }
+<div class="expense-list-section">
+  <div class="add-new-button-container">
+    <button
+      mat-flat-button
+      class="add-new-button"
+      (click)="openNewExpenseDialog()"
+    >
+      Add New
+    </button>
+  </div>
+  <div class="expense-list">
+    @for (expense of (expenses$ | async); track expense._id) {
+    <a class="expense-container" (click)="openExpenseDialog(expense)">
+      <span class="amount-text">{{ expense.amount | currencyFormat }}</span>
+      <span class="category-text">{{ expense.category }}</span>
+      <span class="date-text">{{ expense.date }}</span>
+    </a>
+    }
+  </div>
 </div>
