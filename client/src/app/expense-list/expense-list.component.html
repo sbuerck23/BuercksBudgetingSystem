@@ -5,7 +5,7 @@
       class="add-new-button"
       (click)="openNewExpenseDialog()"
     >
-      Add New
+      Add Expense
     </button>
   </div>
   <div class="expense-list">
@@ -13,6 +13,7 @@
     <a class="expense-container" (click)="openExpenseDialog(expense)">
       <span class="amount-text">{{ expense.amount | currencyFormat }}</span>
       <span class="category-text">{{ expense.category }}</span>
+      <span class="description-text">{{ expense.description }}</span>
       <span class="date-text">{{ expense.date }}</span>
     </a>
     }
