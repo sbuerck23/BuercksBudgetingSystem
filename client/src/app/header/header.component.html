@@ -1,8 +1,11 @@
-<div class="header">
-  <mat-toolbar>
-    <button mat-icon-button (click)="onClick($event)">
+<mat-toolbar class="header">
+  <div class="left-header">
+    <button mat-icon-button (click)="openSidenav($event)">
       <mat-icon>menu</mat-icon>
     </button>
     <div>Buercks Budgeting System</div>
-  </mat-toolbar>
-</div>
+  </div>
+  <button mat-icon-button class="settings-button" (click)="openSettings()">
+    <mat-icon>settings</mat-icon>
+  </button>
+</mat-toolbar>

@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-header {
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+
+.settings-button {
+  text-align: right;
+}
