@@ -9,6 +9,12 @@
     </button>
   </div>
   <div class="expense-list">
+    <div class="expense-list-headers">
+      <span class="amount-header">Amount</span>
+      <span class="category-header">Category</span>
+      <span class="description-header">Description</span>
+      <span class="date-header">Date</span>
+    </div>
     @for (expense of (expenses$ | async); track expense._id) {
     <a class="expense-container" (click)="openExpenseDialog(expense)">
       <span class="amount-text">{{ expense.amount | currencyFormat }}</span>

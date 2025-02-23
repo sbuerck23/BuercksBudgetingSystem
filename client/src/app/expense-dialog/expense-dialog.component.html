@@ -1,4 +1,9 @@
-<h2 mat-dialog-title>Expense</h2>
+<h2 mat-dialog-title class="expense-header">
+  <div class="header-text">Expense</div>
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</h2>
 <mat-dialog-content>
   <div>{{ expense.amount }}</div>
   <div>{{ expense.category }}</div>

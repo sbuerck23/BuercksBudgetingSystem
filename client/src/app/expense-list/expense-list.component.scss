@@ -9,26 +9,38 @@
   transition: background-color 0.1s ease-in-out;
 }
 
+.expense-list-headers {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 5px;
+  width: 100%;
+}
+
 .expense-container:hover {
   background-color: rgb(235, 235, 235);
 }
 
-.category-text {
+.category-text,
+.category-header {
   text-align: left;
   flex: 1;
 }
 
-.description-text {
+.description-text,
+.description-header {
   text-align: left;
   flex: 1;
 }
 
-.date-text {
-  text-align: right;
+.date-text,
+.date-header {
+  text-align: left;
   flex: 1;
 }
 
-.amount-text {
+.amount-text,
+.amount-header {
   text-align: left;
   flex: 1;
 }
@@ -36,7 +48,7 @@
 .add-new-button {
   display: flex;
   justify-self: right;
-  margin-bottom: 8px;
+  margin-bottom: -24px;
 }
 
 .expense-list {

@@ -1,0 +1,17 @@
+.expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-text {
+  align-self: center;
+}
+
+.close-button {
+  margin-left: auto;
+}
+
+mat-icon {
+  color: rgb(212, 90, 90);
+}
