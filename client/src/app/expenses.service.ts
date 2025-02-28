@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Expense } from './expense';
 import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
@@ -12,10 +12,6 @@ export class ExpensesService {
   public filterSubject = new BehaviorSubject<{ searchTerm: string; category: string }>({ searchTerm: '', category: '' });
 
   constructor(private httpClient: HttpClient) { }
-
-  public refreshExpenses() {
-    return this.httpClient.get<Expense[]>(`${this.url}/expenses`);
-  }
 
   getFilteredExpenses(): Observable<Expense[]> {
     return combineLatest([

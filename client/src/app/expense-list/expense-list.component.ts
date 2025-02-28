@@ -44,6 +44,10 @@ export class ExpenseListComponent implements OnInit {
   }
 
   public openNewExpenseDialog() {
-    this.dialog.open(NewExpenseComponent);
+    const dialogRef = this.dialog.open(NewExpenseComponent);
+
+    dialogRef.afterClosed().subscribe(r => {
+      this.expenses$ = this.expensesService.getFilteredExpenses();
+    });
   }
 }

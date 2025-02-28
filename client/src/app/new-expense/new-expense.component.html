@@ -1,1 +1,60 @@
-<p>new-expense works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="add-expense-title">Add a New Expense</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="new-expense-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="category" required>
+        <mat-option value="Housing">Housing</mat-option>
+        <mat-option value="Food">Food</mat-option>
+        <mat-option value="Transportation">Transportation</mat-option>
+        <mat-option value="Insurance">Insurance</mat-option>
+        <mat-option value="Other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        required
+        type="text"
+        placeholder="Description"
+        [(ngModel)]="description"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Amount</mat-label>
+      <input
+        matInput
+        required
+        type="number"
+        step="0.01"
+        min="0"
+        placeholder="Amount"
+        [(ngModel)]="amount"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" required [(ngModel)]="date" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button
+      mat-flat-button
+      class="submit-button"
+      (click)="submit()"
+      [disabled]="!category || !description || !amount || !date"
+    >
+      Submit
+    </button>
+  </mat-card-content>
+</mat-card>
