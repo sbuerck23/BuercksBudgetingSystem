@@ -1,0 +1,28 @@
+.delete-confirmation-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-text {
+  align-self: center;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-button {
+  width: 45%;
+  color: var(--mat-sys-error);
+}
+
+.delete-button:hover {
+  background-color: var(--mat-sys-error);
+  color: white;
+}
+
+.cancel-button {
+  width: 45%;
+}

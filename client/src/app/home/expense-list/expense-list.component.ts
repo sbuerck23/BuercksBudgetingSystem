@@ -12,6 +12,7 @@ import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.compone
 import { NewExpenseComponent } from '../new-expense/new-expense.component';
 import { MatIconModule } from '@angular/material/icon';
 import { EditExpenseComponent } from '../edit-expense/edit-expense.component';
+import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
 
 export interface DialogData {
   _id: string;
@@ -65,8 +66,13 @@ export class ExpenseListComponent implements OnInit {
 
   public deleteExpense(event: Event, id: string) {
     event.stopPropagation();
-    this.expensesService.deleteExpense(id).subscribe({
-      next: () => this.expenses$ = this.expensesService.getFilteredExpenses()
+
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent, {
+      data: { _id: id }
+    });
+
+    dialogRef.afterClosed().subscribe(r => {
+      this.expenses$ = this.expensesService.getFilteredExpenses();
     });
   }
 }

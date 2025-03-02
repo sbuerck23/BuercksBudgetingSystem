@@ -1,0 +1,11 @@
+<h2 mat-dialog-title class="delete-confirmation-header">
+  <div class="header-text">Confirm Delete?</div>
+</h2>
+<mat-dialog-content class="confirm-buttons">
+  <button (click)="deleteExpense()" mat-raised-button class="delete-button">
+    Delete
+  </button>
+  <button (click)="cancel()" mat-raised-button class="cancel-button">
+    Cancel
+  </button>
+</mat-dialog-content>
