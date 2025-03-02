@@ -7,9 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { ExpensesService } from '../expenses.service';
+import { ExpensesService } from '../../expenses.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Expense } from '../expense';
+import { Expense } from '../../expense';
 
 @Component({
   selector: 'app-new-expense',

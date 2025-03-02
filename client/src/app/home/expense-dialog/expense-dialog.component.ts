@@ -6,7 +6,7 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { DialogData } from '../expense-list/expense-list.component';
-import { Expense } from '../expense';
+import { Expense } from '../../expense';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 

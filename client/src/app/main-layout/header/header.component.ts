@@ -3,7 +3,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { SettingsComponent } from '../settings/settings.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @Component({
   selector: 'app-header',

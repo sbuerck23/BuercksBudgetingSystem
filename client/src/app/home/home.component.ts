@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ExpenseListComponent } from "../expense-list/expense-list.component";
-import { FilterComponent } from '../filter/filter.component';
+import { ExpenseListComponent } from './expense-list/expense-list.component';
+import { FilterComponent } from './filter/filter.component';
 import { ExpensesService } from '../expenses.service';
 
 @Component({
