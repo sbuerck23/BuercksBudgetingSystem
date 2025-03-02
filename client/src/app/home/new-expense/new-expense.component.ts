@@ -30,7 +30,7 @@ export class NewExpenseComponent {
 
   public submit() {
     this.expensesService.createExpense(
-      { category: this.category, description: this.description, amount: this.amount, date: this.date.toISOString() }
+      { category: this.category, description: this.description, amount: this.amount, date: this.date.toLocaleDateString() }
     ).subscribe({
       next: () => {
         this.dialogRef.close();
