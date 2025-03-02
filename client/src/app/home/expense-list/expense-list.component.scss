@@ -65,11 +65,7 @@
   display: inline;
 }
 
-.delete-button {
-  display: none;
-  color: var(--mat-sys-error);
-}
-
+.delete-button,
 .edit-button {
   display: none;
 }
