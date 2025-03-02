@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.component';
 import { NewExpenseComponent } from '../new-expense/new-expense.component';
 import { MatIconModule } from '@angular/material/icon';
+import { EditExpenseComponent } from '../edit-expense/edit-expense.component';
 
 export interface DialogData {
   _id: string;
@@ -44,6 +45,18 @@ export class ExpenseListComponent implements OnInit {
 
   public openNewExpenseDialog() {
     const dialogRef = this.dialog.open(NewExpenseComponent);
+
+    dialogRef.afterClosed().subscribe(r => {
+      this.expenses$ = this.expensesService.getFilteredExpenses();
+    });
+  }
+
+  public openEditExpenseDialog(event: Event, expense: Expense) {
+    event.stopPropagation();
+
+    const dialogRef = this.dialog.open(EditExpenseComponent, {
+      data: { _id: expense._id, category: expense.category, description: expense.description, amount: expense.amount, date: expense.date }
+    });
 
     dialogRef.afterClosed().subscribe(r => {
       this.expenses$ = this.expensesService.getFilteredExpenses();

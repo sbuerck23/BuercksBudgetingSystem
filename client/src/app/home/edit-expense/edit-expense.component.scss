@@ -15,3 +15,11 @@
 mat-icon {
   color: var(--mat-sys-error);
 }
+
+.edit-expense-form {
+  display: grid;
+}
+
+.amount-input {
+  margin-top: 4px;
+}

@@ -24,6 +24,13 @@
       <span>
         <button
           mat-icon-button
+          (click)="openEditExpenseDialog($event, expense)"
+          class="edit-button"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
           (click)="deleteExpense($event, expense._id)"
           class="delete-button"
         >

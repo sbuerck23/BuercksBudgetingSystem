@@ -61,7 +61,15 @@
   display: inline;
 }
 
+.expense-container:hover .edit-button {
+  display: inline;
+}
+
 .delete-button {
   display: none;
   color: var(--mat-sys-error);
+}
+
+.edit-button {
+  display: none;
 }

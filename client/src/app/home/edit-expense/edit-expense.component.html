@@ -1,0 +1,59 @@
+<h2 mat-dialog-title class="expense-header">
+  <div class="header-text">Expense</div>
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</h2>
+<mat-dialog-content class="edit-expense-form">
+  <mat-form-field appearance="outline" class="amount-input">
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      required
+      type="number"
+      step="0.01"
+      min="0"
+      placeholder="Amount"
+      [(ngModel)]="amount"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Category</mat-label>
+    <mat-select [(ngModel)]="category" required>
+      <mat-option value="Housing">Housing</mat-option>
+      <mat-option value="Food">Food</mat-option>
+      <mat-option value="Transportation">Transportation</mat-option>
+      <mat-option value="Insurance">Insurance</mat-option>
+      <mat-option value="Other">Other</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      required
+      type="text"
+      placeholder="Description"
+      [(ngModel)]="description"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker" required [(ngModel)]="date" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button
+    mat-flat-button
+    class="edit-button"
+    (click)="editExpense()"
+    [disabled]="!category || !description || !amount || !date"
+  >
+    Edit
+  </button>
+</mat-dialog-content>
