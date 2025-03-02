@@ -7,11 +7,10 @@ import { ExpensesService } from '../expenses.service';
 import { AsyncPipe } from '@angular/common';
 import { CurrencyFormatPipe } from '../currency-format.pipe';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  MatDialog
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.component';
 import { NewExpenseComponent } from '../new-expense/new-expense.component';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface DialogData {
   _id: string;
@@ -23,7 +22,7 @@ export interface DialogData {
 
 @Component({
   selector: 'app-expense-list',
-  imports: [MatListModule, MatCardModule, AsyncPipe, CurrencyFormatPipe, MatButtonModule,],
+  imports: [MatListModule, MatCardModule, AsyncPipe, CurrencyFormatPipe, MatButtonModule, MatIconModule],
   templateUrl: './expense-list.component.html',
   styleUrl: './expense-list.component.scss'
 })
@@ -48,6 +47,13 @@ export class ExpenseListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(r => {
       this.expenses$ = this.expensesService.getFilteredExpenses();
+    });
+  }
+
+  public deleteExpense(event: Event, id: string) {
+    event.stopPropagation();
+    this.expensesService.deleteExpense(id).subscribe({
+      next: () => this.expenses$ = this.expensesService.getFilteredExpenses()
     });
   }
 }

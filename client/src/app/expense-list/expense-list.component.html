@@ -21,6 +21,15 @@
       <span class="category-text">{{ expense.category }}</span>
       <span class="description-text">{{ expense.description }}</span>
       <span class="date-text">{{ expense.date }}</span>
+      <span>
+        <button
+          mat-icon-button
+          (click)="deleteExpense($event, expense._id)"
+          class="delete-button"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </span>
     </a>
     }
   </div>
