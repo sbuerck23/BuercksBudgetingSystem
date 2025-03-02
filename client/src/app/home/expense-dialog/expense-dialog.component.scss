@@ -15,3 +15,16 @@
 mat-icon {
   color: var(--mat-sys-error);
 }
+
+.info-header {
+  font-size: smaller;
+}
+
+.info-header:not(:first-child) {
+  margin-top: 20px;
+}
+
+.info-text {
+  font-size: large;
+  font-weight: bolder;
+}

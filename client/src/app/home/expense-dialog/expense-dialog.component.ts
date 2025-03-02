@@ -8,10 +8,11 @@ import { DialogData } from '../expense-list/expense-list.component';
 import { Expense } from '../../expense';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { CurrencyFormatPipe } from '../../currency-format.pipe';
 
 @Component({
   selector: 'app-expense-dialog',
-  imports: [MatDialogModule, MatIconModule, MatButtonModule],
+  imports: [MatDialogModule, MatIconModule, MatButtonModule, CurrencyFormatPipe],
   templateUrl: './expense-dialog.component.html',
   styleUrl: './expense-dialog.component.scss'
 })

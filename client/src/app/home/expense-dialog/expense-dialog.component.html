@@ -5,8 +5,12 @@
   </button>
 </h2>
 <mat-dialog-content>
-  <div>{{ expense.amount }}</div>
-  <div>{{ expense.category }}</div>
-  <div>{{ expense.description }}</div>
-  <div>{{ expense.date }}</div>
+  <div class="info-header">Amount</div>
+  <div class="info-text">{{ expense.amount | currencyFormat }}</div>
+  <div class="info-header">Category</div>
+  <div class="info-text">{{ expense.category }}</div>
+  <div class="info-header">Description</div>
+  <div class="info-text">{{ expense.description }}</div>
+  <div class="info-header">Date</div>
+  <div class="info-text">{{ expense.date }}</div>
 </mat-dialog-content>
