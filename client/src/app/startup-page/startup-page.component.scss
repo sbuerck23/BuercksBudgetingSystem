@@ -1,0 +1,27 @@
+.startup-page {
+  height: 100vh;
+  text-align: center;
+}
+
+.header {
+  margin-top: 40px;
+  display: flex;
+  justify-self: center;
+}
+
+.button-container {
+  display: grid;
+  justify-self: center;
+}
+
+.login-button {
+  margin-top: 20px;
+  width: 300px;
+  height: 60px;
+}
+
+.register-button {
+  margin-top: 10px;
+  width: 300px;
+  height: 60px;
+}
