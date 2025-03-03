@@ -1,7 +1,5 @@
-import * as mongodb from "mongodb";
-
 export interface User {
-    _id?: mongodb.ObjectId;
+    _id?: string;
     username: string;
     email: string;
     password: string;

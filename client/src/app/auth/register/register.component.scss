@@ -1,0 +1,18 @@
+.register-page {
+  height: 100vh;
+  text-align: center;
+}
+
+.form-fields {
+  display: grid;
+  justify-self: center;
+  width: 300px;
+}
+
+.password-requirements {
+  text-align: left;
+  margin-top: -10px;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  font-size: small;
+}

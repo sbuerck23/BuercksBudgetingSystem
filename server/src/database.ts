@@ -24,10 +24,14 @@ async function applySchemaValidation(db: mongodb.Db) {
     const expenseJsonSchema = {
         $jsonSchema: {
             bsonType: "object",
-            required: ["category", "description", "amount", "date"],
+            required: ["userId", "category", "description", "amount", "date"],
             additionalProperties: false,
             properties: {
                 _id: {},
+                userId: {
+                    bsonType: "string",
+                    description: "'userId' is required and is a string",
+                },
                 category: {
                     bsonType: "string",
                     description: "'category' is required and is a string",
@@ -50,13 +54,17 @@ async function applySchemaValidation(db: mongodb.Db) {
     const userJsonSchema = {
         $jsonSchema: {
             bsonType: "object",
-            required: ["username", "password"],
+            required: ["username", "email", "password"],
             additionalProperties: false,
             properties: {
                 _id: {},
                 username: {
                     bsonType: "string",
                     description: "'username' is required and is a string",
+                },
+                email: {
+                    bsonType: "string",
+                    description: "'email' is required and is a string",
                 },
                 password: {
                     bsonType: "string",

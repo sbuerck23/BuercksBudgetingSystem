@@ -1,1 +1,50 @@
-<p>register works!</p>
+<div class="register-page">
+  <h2>Register</h2>
+  <div class="form-fields">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        required
+        type="text"
+        placeholder="Email"
+        [(ngModel)]="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        required
+        type="text"
+        placeholder="Username"
+        [(ngModel)]="username"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        required
+        type="text"
+        placeholder="Password"
+        [(ngModel)]="password"
+      />
+    </mat-form-field>
+    <ul class="password-requirements">
+      Password must include:
+      <li>6-18 characters</li>
+      <li>At least one letter</li>
+      <li>At least one number</li>
+    </ul>
+    <button
+      mat-flat-button
+      (click)="register()"
+      [disabled]="!email || !username || !password"
+    >
+      Register
+    </button>
+  </div>
+</div>
