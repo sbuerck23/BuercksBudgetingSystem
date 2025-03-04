@@ -23,7 +23,7 @@ authRouter.post("/register", async (req, res) => {
             const result = await collections?.users?.insertOne(creds);
 
             if (result?.acknowledged) {
-                res.status(201).json({ messege: `Created a new user ${result.insertedId}.`, userId: result.insertedId });
+                res.status(201).json({ messege: `Created a new user ${result.insertedId}.`, userId: result.insertedId, username: creds.username });
             } else {
                 res.status(500).send("Failed to create a new user.");
             }
@@ -49,7 +49,7 @@ authRouter.post("/login", async (req, res) => {
                 res.status(409).send("Invalid credentials.");
                 return;
             } else {
-                res.status(201).json({ messege: "Successfully logged in.", userId: foundUser._id });
+                res.status(201).json({ messege: "Successfully logged in.", userId: foundUser._id, username: foundUser.username });
                 return;
             }
         }
@@ -58,7 +58,7 @@ authRouter.post("/login", async (req, res) => {
                 res.status(409).send("Invalid credentials.");
                 return;
             } else {
-                res.status(201).json({ messege: "Successfully logged in.", userId: foundEmail._id });
+                res.status(201).json({ messege: "Successfully logged in.", userId: foundEmail._id, username: foundEmail.username });
                 return;
             }
         }

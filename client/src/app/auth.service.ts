@@ -12,18 +12,24 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   createUser(user: User) {
-    return this.httpClient.post<{ userId: string }>(`${this.url}/users/register`, user).pipe(tap(response => {
+    return this.httpClient.post<{ userId: string; username: string }>(`${this.url}/users/register`, user).pipe(tap(response => {
       localStorage.setItem('userId', response.userId);
+      localStorage.setItem('username', response.username);
     }));
   }
 
   getUser(creds: { username: string, password: string }) {
-    return this.httpClient.post<{ messege: string; userId: string }>(`${this.url}/users/login`, creds).pipe(tap(response => {
+    return this.httpClient.post<{ messege: string; userId: string; username: string }>(`${this.url}/users/login`, creds).pipe(tap(response => {
       localStorage.setItem('userId', response.userId);
+      localStorage.setItem('username', response.username);
     }));
   }
 
   getUserId() {
     return localStorage.getItem('userId');
+  }
+
+  getUsername() {
+    return localStorage.getItem('username');
   }
 }

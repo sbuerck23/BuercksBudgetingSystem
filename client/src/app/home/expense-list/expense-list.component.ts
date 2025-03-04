@@ -34,11 +34,15 @@ export class ExpenseListComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   public expenses$: Observable<Expense[]>;
   public userId: string;
+  public username: string;
 
-
-  constructor(private expensesService: ExpensesService, private authService: AuthService) { this.userId = this.authService.getUserId(); }
+  constructor(private expensesService: ExpensesService, private authService: AuthService) {
+    this.userId = this.authService.getUserId();
+    this.username = this.authService.getUsername();
+  }
 
   ngOnInit(): void {
+    console.log(this.authService.getUsername());
     this.expenses$ = this.expensesService.getFilteredExpenses(this.userId);
   }
 
