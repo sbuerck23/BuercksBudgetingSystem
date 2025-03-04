@@ -42,7 +42,6 @@ export class ExpenseListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.authService.getUsername());
     this.expenses$ = this.expensesService.getFilteredExpenses(this.userId);
   }
 
