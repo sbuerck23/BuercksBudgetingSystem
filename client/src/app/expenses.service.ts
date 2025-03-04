@@ -13,9 +13,9 @@ export class ExpensesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getFilteredExpenses(): Observable<Expense[]> {
+  getFilteredExpenses(userId: string): Observable<Expense[]> {
     return combineLatest([
-      this.httpClient.get<Expense[]>(`${this.url}/expenses`),
+      this.httpClient.get<Expense[]>(`${this.url}/expenses?userId=${userId}`),
       this.filterSubject.asObservable()
     ]).pipe(
       map(([expenses, filters]) => {

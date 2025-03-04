@@ -13,9 +13,11 @@ import { NewExpenseComponent } from '../new-expense/new-expense.component';
 import { MatIconModule } from '@angular/material/icon';
 import { EditExpenseComponent } from '../edit-expense/edit-expense.component';
 import { DeleteConfirmationComponent } from '../delete-confirmation/delete-confirmation.component';
+import { AuthService } from '../../auth.service';
 
 export interface DialogData {
   _id: string;
+  userId: string;
   category: string;
   description: string;
   amount: number;
@@ -31,11 +33,13 @@ export interface DialogData {
 export class ExpenseListComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   public expenses$: Observable<Expense[]>;
+  public userId: string;
 
-  constructor(private expensesService: ExpensesService) { }
+
+  constructor(private expensesService: ExpensesService, private authService: AuthService) { this.userId = this.authService.getUserId(); }
 
   ngOnInit(): void {
-    this.expenses$ = this.expensesService.getFilteredExpenses();
+    this.expenses$ = this.expensesService.getFilteredExpenses(this.userId);
   }
 
   public openExpenseDialog(expense: Expense) {
@@ -48,7 +52,7 @@ export class ExpenseListComponent implements OnInit {
     const dialogRef = this.dialog.open(NewExpenseComponent);
 
     dialogRef.afterClosed().subscribe(r => {
-      this.expenses$ = this.expensesService.getFilteredExpenses();
+      this.expenses$ = this.expensesService.getFilteredExpenses(this.userId);
     });
   }
 
@@ -60,7 +64,7 @@ export class ExpenseListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(r => {
-      this.expenses$ = this.expensesService.getFilteredExpenses();
+      this.expenses$ = this.expensesService.getFilteredExpenses(this.userId);
     });
   }
 
@@ -72,7 +76,7 @@ export class ExpenseListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(r => {
-      this.expenses$ = this.expensesService.getFilteredExpenses();
+      this.expenses$ = this.expensesService.getFilteredExpenses(this.userId);
     });
   }
 }

@@ -5,9 +5,11 @@ import { collections } from "./database";
 export const expenseRouter = express.Router();
 expenseRouter.use(express.json());
 
-expenseRouter.get("/", async (_req, res) => {
+expenseRouter.get("/", async (req, res) => {
     try {
-        const expenses = await collections?.expenses?.find({}).toArray();
+        const userId = req.query.userId;
+        const query = { userId: userId };
+        const expenses = await collections?.expenses?.find(query).toArray();
         res.status(200).send(expenses);
     } catch (error) {
         res.status(500).send(error instanceof Error ? error.message : "Unknown error");

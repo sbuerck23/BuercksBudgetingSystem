@@ -9,6 +9,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ExpensesService } from '../../expenses.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-new-expense',
@@ -25,11 +26,11 @@ export class NewExpenseComponent {
   public amount: number;
   public date: Date;
 
-  constructor(private expensesService: ExpensesService) { }
+  constructor(private expensesService: ExpensesService, private authService: AuthService) { }
 
   public submit() {
     this.expensesService.createExpense(
-      { category: this.category, description: this.description, amount: this.amount, date: this.date.toLocaleDateString() }
+      { userId: this.authService.getUserId(), category: this.category, description: this.description, amount: this.amount, date: this.date.toLocaleDateString() }
     ).subscribe({
       next: () => {
         this.dialogRef.close();
