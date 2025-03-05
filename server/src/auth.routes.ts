@@ -1,8 +1,5 @@
 import * as express from "express";
-import { ObjectId } from "mongodb";
 import { collections } from "./database";
-
-import * as jwt from "node-jsonwebtoken";
 
 export const authRouter = express.Router();
 authRouter.use(express.json());
